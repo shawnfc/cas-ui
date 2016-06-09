@@ -1,0 +1,66 @@
+@import "global";
+
+md-toolbar.sideNavHeader {
+  user.user-name {
+    text-transform: uppercase;
+  }
+  .user-name {
+    font-size: .8em;
+  }
+}
+
+md-sidenav {
+  md-toolbar.md-default-theme.md-hue-3:not(.md-menu-toolbar), md-toolbar.md-hue-3:not(.md-menu-toolbar) {
+    background-color: rgb(43, 49, 52);
+    color: #eee;
+  }
+  .menu .md-button span.fa {
+    line-height: 40px;
+  }
+  overflow: hidden;
+  .md-sidenav-left {
+    width: 232px;
+    min-width: 232px;
+    max-width: 232px;
+    text-transform: capitalize;
+    font-size: 14px;
+  }
+  md-content ul.menu li button {
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  md-content ul.menu .md-button.md-raised:not([disabled]) {
+    background: #252525;
+  }
+
+  .md-caption {
+    color: #666666;
+  }
+  .rolesTitle {
+    font-size: 10px;
+    color: #999999;
+  }
+  .roles {
+    font-size: 16px;
+    color: #cccccc;
+    line-height: 22px;
+    text-transform: capitalize;
+  }
+  .menu .md-button {
+    .fa {
+      font-size: 25px;
+      line-height: 25px;
+      color: #999999;
+      vertical-align: middle;
+    }
+    span {
+      font-size: 14px;
+    }
+    color: #ccc;
+    text-transform: capitalize;
+    &:hover {
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+<md-dialog ng-cloak class="promotion md-margin" layout="column">
+  <!--PROMOTION VIEW-->
+  <md-dialog-content>
+
+    <div class="md-dialog-content">
+      <div layout="row">
+        <h2>Promotion</h2>
+        <span flex></span>
+        <i class="fa fa-times" ng-click="vm.Cancel()"></i>
+      </div>
+      <p>Promotion History</p>
+      <span ng-repeat="space in vm.promotedSpaces">
+          <span>{{space.name}}</span>
+          <span ng-if="!$last">></span>
+      </span>
+      <p>Select target space</p>
+      <form>
+        <md-dialog-content>
+          <md-radio-group ng-model="vm.selectedSpaceId" layout="row" layout-align="center start">
+            <md-radio-button ng-repeat="space in vm.spaces" ng-value="space.spaceId" class="md-primary">{{space.name}}
+            </md-radio-button>
+          </md-radio-group>
+        </md-dialog-content>
+        <md-dialog-actions flex layout="row" layout-align="space-between">
+          <md-button ng-click="vm.Promote()" md-autofocus class="promotion-save md-raised">
+            Save
+          </md-button>
+          <md-button ng-click="vm.Cancel()" class="cancel">
+            Cancel
+          </md-button>
+        </md-dialog-actions>
+      </form>
+    </div>
+
+  </md-dialog-content>
+
+</md-dialog>

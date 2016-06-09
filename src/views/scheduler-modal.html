@@ -1,0 +1,232 @@
+<md-dialog ng-cloak class="scheduler-modal" ng-show="vm.schedulerModal" layout="column">
+
+  <!--SCHEDULE VIEW-->
+  <md-toolbar>
+    <div layout="row" class="md-margin md-padding" style="padding-bottom: 0;">
+      <div class="schedTitle">Schedule a Deploy<br><span class="schedSubTitle">{{vm.locals.appName}} v{{vm.locals.buildVersion}}</span>
+      </div>
+      <span flex></span>
+      <i class="fa fa-times" ng-click="vm.Close()"></i>
+    </div>
+  </md-toolbar>
+
+  <md-steppers md-dynamic-height md-selected="vm.selectedStep">
+    <md-step label="Choose Space" md-complete="vm.stepData[0].data.completed" ng-disabled="vm.stepProgress < 1">
+      <md-content>
+        <form name="scheduleForm" novalidate>
+          <md-radio-group name="space" required ng-model="vm.formData.selectedSpaceId" style="display: inline-block;">
+            <md-radio-button ng-click="vm.submitCurrentStep(vm.stepData[0])" ng-repeat="space in vm.locals.spaces"
+                             ng-value="space.spaceId">
+              {{space.name}}
+            </md-radio-button>
+          </md-radio-group>
+          <div ng-messages="scheduleForm.space.$error" ng-if="scheduleForm.$dirty">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </form>
+        <div layout="row" layout-align="end center" class="md-margin md-padding">
+          <md-button class="md-button tertiary" ng-click="vm.Close()">Cancel</md-button>
+        </div>
+      </md-content>
+    </md-step>
+    <md-step label="Choose Deployment Target" md-complete="vm.stepData[1].data.completed"
+             ng-disabled="vm.stepProgress < 2">
+      <md-content>
+        <div>
+          <md-virtual-repeat-container data-collapsed="isCollapsed"
+                                       data-angular-treeview="true"
+                                       data-tree-id="tv1"
+                                       data-tree-model="vm.locals.directoryTree"
+                                       data-node-id="orgUnitId"
+                                       data-node-label="name"
+                                       data-node-children="children" layout-padding layout="column"
+                                       layout-align="center center" class="treeview-container">
+          </md-virtual-repeat-container>
+          <div layout="row" layout-align="end center" class="md-margin md-padding">
+            <md-button class="md-button tertiary" ng-click="vm.Close()">Cancel</md-button>
+            <md-button class="md-button" ng-click="vm.moveToPreviousStep()">Back</md-button>
+            <md-button value="Next" class="md-button primary" ng-click="vm.submitCurrentStep(vm.stepData[1])">Next Step
+            </md-button>
+          </div>
+        </div>
+      </md-content>
+    </md-step>
+    <md-step label="Date and Time" md-complete="vm.stepData[2].data.completed" ng-disabled="vm.stepProgress < 3">
+      <md-content>
+        <form name="dateForm" ng-submit="vm.Schedule()">
+          <md-radio-group required ng-model="vm.formData.scheduleType">
+            <md-radio-button value="now" class="md-primary">Right Now</md-radio-button>
+            <md-radio-button value="schedule" class="md-primary">Future</md-radio-button>
+          </md-radio-group>
+          <div ng-if="vm.formData.scheduleType !== 'now'">
+            <div ng-messages="dateForm.myDate.$error" ng-if="dateForm.$dirty" class="md-margin">
+              <div ng-message="required">Select a valid date and time.</div>
+            </div>
+            <div layout="row" layout-align="start end" class="md-margin">
+              <div layout="column" layout-align="start" class="date-container">
+                <label class="datepickerLabel">Date</label>
+                <md-datepicker name="myDate" ng-model="vm.formData.scheduleEventDate" md-placeholder="mm/dd/yyyy"
+                               md-min-date="vm.minDate" md-max-date="vm.maxDate" ng-required="true">
+                </md-datepicker>
+              </div>
+
+              <md-input-container ng-focus="vm.focusedTime" class="timePicker"
+                                  ng-class="{timePickerInvalid: !myForm.$pristine && myForm.$invalid}">
+                <label>Time</label>
+                <input ng-keydown="vm.SetFormDirty(myForm)" class="timePickerInput" type="time" name="myTime"
+                       ng-model="vm.formData.scheduleEventDate" required>
+              </md-input-container>
+
+            </div>
+          </div>
+          <div layout="row" layout-align="end center" class="md-margin md-padding finalStepBtns">
+            <md-button class="md-button tertiary" ng-click="vm.Close()">Cancel</md-button>
+            <md-button class="md-button" ng-click="vm.moveToPreviousStep()">Back</md-button>
+            <md-button type="submit" class="md-raised md-accent" ng-disabled="dateForm.$invalid" style="margin-right:0;">Finish</md-button>
+          </div>
+          <div ng-if="vm.errorMsg" class="errorMessage">
+            <p>{{vm.locals.appName}} v{{vm.locals.buildVersion}} was unable to be scheduled.</p>
+            <p>{{vm.errorMsg}}</p>
+          </div>
+        </form>
+      </md-content>
+    </md-step>
+  </md-steppers>
+
+
+  <!--<md-dialog-content ng-show="vm.schedulerModal">-->
+  <!--<div class="md-dialog-content">-->
+
+  <!--<div layout="row">-->
+  <!--<h2>Scheduling Deploy: {{vm.locals.appName}} v{{vm.locals.buildVersion}}</h2>-->
+  <!--<span flex></span>-->
+  <!--<i class="fa fa-times" ng-click="vm.Close()"></i>-->
+  <!--</div>-->
+
+  <!--<wizard on-finish="vm.Schedule()" style="display: none;">-->
+  <!--<wz-step title="Starting">-->
+  <!--<form name="scheduleForm" novalidate>-->
+  <!--<p>Select space</p>-->
+  <!--<md-select placeholder="click to make selection" name="space" required ng-model="vm.formData.selectedSpaceId">-->
+  <!--<md-option ng-click="vm.NextStep()" ng-repeat="space in vm.locals.spaces" ng-value="space.spaceId"-->
+  <!--class="md-primary">-->
+  <!--{{space.name}}-->
+  <!--</md-option>-->
+  <!--</md-select>-->
+  <!--<div ng-messages="scheduleForm.space.$error" ng-if="scheduleForm.$dirty">-->
+  <!--<div ng-message="required">This is required.</div>-->
+  <!--</div>-->
+  <!--</form>-->
+  <!--</wz-step>-->
+  <!--<wz-step title="Continuing">-->
+  <!--<p>Select deployment target</p>-->
+
+  <!--<md-virtual-repeat-container data-collapsed="isCollapsed"-->
+  <!--data-angular-treeview="true"-->
+  <!--data-tree-id="tv1"-->
+  <!--data-tree-model="vm.locals.directoryTree"-->
+  <!--data-node-id="orgUnitId"-->
+  <!--data-node-label="name"-->
+  <!--data-node-children="children" layout-padding layout="column"-->
+  <!--layout-align="center center" class="treeview-container">-->
+  <!--</md-virtual-repeat-container>-->
+
+  <!--<md-button wz-next="vm.NextStep()" value="Next" class="md-accent md-raised">Next</md-button>-->
+  <!--</wz-step>-->
+  <!--<wz-step title="Select datetime">-->
+  <!--<form name="dateForm">-->
+  <!--<p>Choose Date and Time</p>-->
+  <!--<div layout="row" layout-align="start end" class="md-margin">-->
+
+  <!--<div layout="column" layout-align="start" class="date-container">-->
+  <!--<label class="datepickerLabel">Date</label>-->
+  <!--<md-datepicker name="myDate" ng-model="vm.formData.scheduleEventDate" md-placeholder="mm/dd/yyyy"-->
+  <!--md-min-date="vm.minDate" md-max-date="vm.maxDate" ng-required="true">-->
+  <!--</md-datepicker>-->
+  <!--</div>-->
+
+  <!--<md-input-container ng-focus="vm.focusedTime" class="timePicker"-->
+  <!--ng-class="{timePickerInvalid: !myForm.$pristine && myForm.$invalid}">-->
+  <!--<label>Time</label>-->
+  <!--<input ng-keydown="vm.SetFormDirty(myForm)" class="timePickerInput" type="time" name="myTime"-->
+  <!--ng-model="vm.formData.scheduleEventDate" required>-->
+  <!--<md-icon class="fa fa-clock-o" ng-click="timeFocused()"></md-icon>-->
+  <!--</md-input-container>-->
+
+  <!--<div class="timeZone">UTC</div>-->
+
+  <!--</div>-->
+
+  <!--<div ng-messages="dateForm.myDate.$error" ng-if="dateForm.$dirty">-->
+  <!--<div ng-message="required">Select a valid date and time.</div>-->
+  <!--</div>-->
+
+  <!--<md-button class="md-raised md-accent" ng-disabled="dateForm.$invalid" wz-finish>Schedule</md-button>-->
+  <!--</form>-->
+  <!--</wz-step>-->
+  <!--</wizard>-->
+  <!--</div>-->
+
+  <!--</md-dialog-content>-->
+
+  <!--&lt;!&ndash;SCHEDULING PROCESS&ndash;&gt;-->
+  <!--<div class="scheduler-progress" ng-show="vm.displayProgress">-->
+
+  <!--<div class="progress-header" layout="row" layout-padding layout-align="center center">-->
+  <!--<i class="fa fa-check-circle"></i>-->
+  <!--<p>Your Request Is In Progress</p>-->
+  <!--<span flex></span>-->
+  <!--</div>-->
+
+  <!--<div class="progress-content">-->
+
+  <!--<md-progress-linear md-mode="indeterminate"></md-progress-linear>-->
+
+  <!--</div>-->
+
+  <!--</div>-->
+
+  <!--&lt;!&ndash;SUCCESS MESSAGE&ndash;&gt;-->
+  <!--<div class="scheduler-success" ng-show="vm.successMessage">-->
+
+  <!--<div class="popupHeader success" layout="row" layout-padding layout-align="center center">-->
+  <!--<i class="fa fa-check-circle"></i>-->
+  <!--<p>Successful</p>-->
+  <!--<span flex></span>-->
+  <!--<i class="fa fa-times" ng-click="vm.Close()"></i>-->
+  <!--</div>-->
+
+  <!--<div class="popupContent">-->
+  <!--<p>{{vm.locals.appName}} v{{vm.locals.buildVersion}} is scheduled to deploy to OrgUnit:-->
+  <!--{{vm.formData.targetOrgUnit}} on</p>-->
+
+  <!--<p><strong>{{vm.formData.scheduleEventDate | date:"MM/dd/yyyy 'at' h:mma"}} </strong>local time.</p>-->
+
+  <!--<md-button class="button btn-success" ng-click="vm.Close()">-->
+  <!--View Scheduled Builds-->
+  <!--</md-button>-->
+  <!--</div>-->
+  <!--</div>-->
+
+  <!--&lt;!&ndash;FAIL MESSAGE&ndash;&gt;-->
+  <!--<div class="scheduler-fail" ng-show="failMessage">-->
+
+  <!--<div class="popupHeader error" layout="row" layout-padding layout-align="center center">-->
+  <!--<i class="fa fa-times-circle"></i>-->
+  <!--<p>Failed!</p>-->
+  <!--<span flex></span>-->
+  <!--<i class="fa fa-times" ng-click="vm.Close()"></i>-->
+  <!--</div>-->
+
+  <!--<div class="popupContent">-->
+  <!--<p>{{vm.locals.appName}} v{{vm.locals.buildVersion}} was unable to be scheduled.</p>-->
+
+  <!--<p>{{vm.errorMsg}}</p>-->
+
+  <!--<md-button class="button btn-error" ng-click="vm.Close()">-->
+  <!--Back to Builds-->
+  <!--</md-button>-->
+  <!--</div>-->
+  <!--</div>-->
+
+</md-dialog>

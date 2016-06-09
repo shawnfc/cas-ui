@@ -1,0 +1,301 @@
+{
+  "collapsed": false,
+  "name": "/",
+  "orgUnitPath": "/",
+  "orgUnitId": "id:01gugqm41o6omrd",
+  "children": [
+    {
+      "kind": "admin#directory#orgUnit",
+      "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/uOfiT-xF6Y-oy0gj2oNieNjzSg0\"",
+      "name": "prod",
+      "description": "",
+      "orgUnitPath": "/prod",
+      "orgUnitId": "id:01gugqm43zvq4hm",
+      "parentOrgUnitPath": "/",
+      "parentOrgUnitId": "id:01gugqm41o6omrd",
+      "blockInheritance": false,
+      "children": [
+        {
+          "kind": "admin#directory#orgUnit",
+          "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/6DEt_m8EccT25Ix_RcVobM4B8K4\"",
+          "name": "slack-warroom-kiosk",
+          "description": "",
+          "orgUnitPath": "/prod/slack-warroom-kiosk",
+          "orgUnitId": "id:01gugqm40zaujyp",
+          "parentOrgUnitPath": "/prod",
+          "parentOrgUnitId": "id:01gugqm43zvq4hm",
+          "blockInheritance": false,
+          "children": [],
+          "collapsed": true
+        }
+      ],
+      "collapsed": true
+    },
+    {
+      "kind": "admin#directory#orgUnit",
+      "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/GNXBInDqGcmTDekjLw-40eBKQcs\"",
+      "name": "qa",
+      "description": "",
+      "orgUnitPath": "/qa",
+      "orgUnitId": "id:01gugqm42f10epf",
+      "parentOrgUnitPath": "/",
+      "parentOrgUnitId": "id:01gugqm41o6omrd",
+      "blockInheritance": false,
+      "children": [
+        {
+          "kind": "admin#directory#orgUnit",
+          "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/9BCsyFv21mt4QkjlPRByd1OTwvA\"",
+          "name": "store",
+          "description": "",
+          "orgUnitPath": "/qa/store",
+          "orgUnitId": "id:01gugqm43e5y7l1",
+          "parentOrgUnitPath": "/qa",
+          "parentOrgUnitId": "id:01gugqm42f10epf",
+          "blockInheritance": false,
+          "children": [
+            {
+              "kind": "admin#directory#orgUnit",
+              "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/YJ5AnyeufEjRVkz3Go5tqFTcDag\"",
+              "name": "ST-9000",
+              "description": "",
+              "orgUnitPath": "/qa/store/ST-9000",
+              "orgUnitId": "id:01gugqm41tb8hsu",
+              "parentOrgUnitPath": "/qa/store",
+              "parentOrgUnitId": "id:01gugqm43e5y7l1",
+              "blockInheritance": false,
+              "children": [],
+              "collapsed": true
+            },
+            {
+              "kind": "admin#directory#orgUnit",
+              "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/A71VYFyaSJ6pDHyuAlMjjUDR8Iw\"",
+              "name": "ST-9001",
+              "description": "",
+              "orgUnitPath": "/qa/store/ST-9001",
+              "orgUnitId": "id:01gugqm44daw0gn",
+              "parentOrgUnitPath": "/qa/store",
+              "parentOrgUnitId": "id:01gugqm43e5y7l1",
+              "blockInheritance": false,
+              "children": [],
+              "collapsed": true
+            },
+            {
+              "kind": "admin#directory#orgUnit",
+              "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/SC12olkgKku4l4ME6uVQ3uJHuvc\"",
+              "name": "ST-9079",
+              "description": "ST-9079",
+              "orgUnitPath": "/qa/store/ST-9079",
+              "orgUnitId": "id:01gugqm42k5k9qw",
+              "parentOrgUnitPath": "/qa/store",
+              "parentOrgUnitId": "id:01gugqm43e5y7l1",
+              "blockInheritance": false,
+              "children": [],
+              "collapsed": true
+            },
+            {
+              "kind": "admin#directory#orgUnit",
+              "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/a9WcvCYg1_KNQPMG1g8DJoWrfAQ\"",
+              "name": "ST-9003",
+              "description": "",
+              "orgUnitPath": "/qa/store/ST-9003",
+              "orgUnitId": "id:01gugqm41l0mgva",
+              "parentOrgUnitPath": "/qa/store",
+              "parentOrgUnitId": "id:01gugqm43e5y7l1",
+              "blockInheritance": false,
+              "children": [],
+              "collapsed": true
+            },
+            {
+              "kind": "admin#directory#orgUnit",
+              "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/gw-8XndaQmOJhJOaNR7I5cgxHEs\"",
+              "name": "ST-0027",
+              "description": "",
+              "orgUnitPath": "/qa/store/ST-0027",
+              "orgUnitId": "id:01gugqm44509zj3",
+              "parentOrgUnitPath": "/qa/store",
+              "parentOrgUnitId": "id:01gugqm43e5y7l1",
+              "blockInheritance": false,
+              "children": [],
+              "collapsed": true
+            }
+          ],
+          "collapsed": true
+        },
+        {
+          "kind": "admin#directory#orgUnit",
+          "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/gH8i5gc0IX11ipjl_OXAk3Hno9Y\"",
+          "name": "CSE_HR-Kiosk_POC",
+          "description": "Proof of concept OU for CSE HR Kiosk pilot",
+          "orgUnitPath": "/qa/CSE_HR-Kiosk_POC",
+          "orgUnitId": "id:01gugqm43jai2mi",
+          "parentOrgUnitPath": "/qa",
+          "parentOrgUnitId": "id:01gugqm42f10epf",
+          "blockInheritance": false,
+          "children": [],
+          "collapsed": true
+        },
+        {
+          "kind": "admin#directory#orgUnit",
+          "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/KE9iUzrCJsmzgqWORlObsBV9npU\"",
+          "name": "devices",
+          "description": "",
+          "orgUnitPath": "/qa/devices",
+          "orgUnitId": "id:01gugqm42sg6aog",
+          "parentOrgUnitPath": "/qa",
+          "parentOrgUnitId": "id:01gugqm42f10epf",
+          "blockInheritance": false,
+          "children": [
+            {
+              "kind": "admin#directory#orgUnit",
+              "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/5im9Wd_ajbWoEFbyRelvaDzQEFk\"",
+              "name": "corp",
+              "description": "",
+              "orgUnitPath": "/qa/devices/corp",
+              "orgUnitId": "id:01gugqm40u6aox8",
+              "parentOrgUnitPath": "/qa/devices",
+              "parentOrgUnitId": "id:01gugqm42sg6aog",
+              "blockInheritance": false,
+              "children": [],
+              "collapsed": true
+            }
+          ],
+          "collapsed": true
+        },
+        {
+          "kind": "admin#directory#orgUnit",
+          "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/tK91xJFcdMoA8zXE7xIOC0th1-4\"",
+          "name": "users",
+          "description": "",
+          "orgUnitPath": "/qa/users",
+          "orgUnitId": "id:01gugqm417lgkw9",
+          "parentOrgUnitPath": "/qa",
+          "parentOrgUnitId": "id:01gugqm42f10epf",
+          "blockInheritance": false,
+          "children": [
+            {
+              "kind": "admin#directory#orgUnit",
+              "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/222bPLwxvZXEKSumcPncBjBpM2M\"",
+              "name": "corp",
+              "description": "",
+              "orgUnitPath": "/qa/users/corp",
+              "orgUnitId": "id:01gugqm40lvonzo",
+              "parentOrgUnitPath": "/qa/users",
+              "parentOrgUnitId": "id:01gugqm417lgkw9",
+              "blockInheritance": false,
+              "children": [],
+              "collapsed": true
+            },
+            {
+              "kind": "admin#directory#orgUnit",
+              "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/lKMiqBtYPweRk0iYmtUYm-OsxGM\"",
+              "name": "stores",
+              "description": "",
+              "orgUnitPath": "/qa/users/stores",
+              "orgUnitId": "id:01gugqm435vc6nh",
+              "parentOrgUnitPath": "/qa/users",
+              "parentOrgUnitId": "id:01gugqm417lgkw9",
+              "blockInheritance": false,
+              "children": [
+                {
+                  "kind": "admin#directory#orgUnit",
+                  "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/cOgd3nRYp8-W8BohrdwAn-fHXIY\"",
+                  "name": "manager",
+                  "description": "",
+                  "orgUnitPath": "/qa/users/stores/manager",
+                  "orgUnitId": "id:01gugqm43rl43k2",
+                  "parentOrgUnitPath": "/qa/users/stores",
+                  "parentOrgUnitId": "id:01gugqm435vc6nh",
+                  "blockInheritance": false,
+                  "children": [],
+                  "collapsed": true
+                },
+                {
+                  "kind": "admin#directory#orgUnit",
+                  "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/fCO0__eIrOuOzh55L7COeiEmxaY\"",
+                  "name": "associate",
+                  "description": "",
+                  "orgUnitPath": "/qa/users/stores/associate",
+                  "orgUnitId": "id:01gugqm426qedrv",
+                  "parentOrgUnitPath": "/qa/users/stores",
+                  "parentOrgUnitId": "id:01gugqm435vc6nh",
+                  "blockInheritance": false,
+                  "children": [],
+                  "collapsed": true
+                }
+              ],
+              "collapsed": true
+            }
+          ],
+          "collapsed": true
+        }
+      ],
+      "collapsed": true
+    },
+    {
+      "kind": "admin#directory#orgUnit",
+      "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/lt-zPGp7wNbp7h-LIdlx71AvxGs\"",
+      "name": "SoftwareAutomationLab",
+      "description": "SoftwareAutomationLab",
+      "orgUnitPath": "/SoftwareAutomationLab",
+      "orgUnitId": "id:01gugqm4486c5f6",
+      "parentOrgUnitPath": "/",
+      "parentOrgUnitId": "id:01gugqm41o6omrd",
+      "blockInheritance": false,
+      "children": [
+        {
+          "kind": "admin#directory#orgUnit",
+          "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/sVBKlJB3vOWOr7EtK6vktFFscUA\"",
+          "name": "CI_Lab",
+          "description": "CI_Lab in chris' office",
+          "orgUnitPath": "/SoftwareAutomationLab/CI_Lab",
+          "orgUnitId": "id:01gugqm41fw2ltt",
+          "parentOrgUnitPath": "/SoftwareAutomationLab",
+          "parentOrgUnitId": "id:01gugqm4486c5f6",
+          "blockInheritance": false,
+          "children": [],
+          "collapsed": true
+        },
+        {
+          "kind": "admin#directory#orgUnit",
+          "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/6hK2jeF5qsIpjOBwBSBCROhu3t4\"",
+          "name": "Tyson",
+          "description": "Tyson's Stuff",
+          "orgUnitPath": "/SoftwareAutomationLab/Tyson",
+          "orgUnitId": "id:01gugqm42nbmfmz",
+          "parentOrgUnitPath": "/SoftwareAutomationLab",
+          "parentOrgUnitId": "id:01gugqm4486c5f6",
+          "blockInheritance": false,
+          "children": [],
+          "collapsed": true
+        },
+        {
+          "kind": "admin#directory#orgUnit",
+          "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/qRUD29IIAC2j7nyMiH95SuZ6b4g\"",
+          "name": "Josh",
+          "description": "Josh's Stuff",
+          "orgUnitPath": "/SoftwareAutomationLab/Josh",
+          "orgUnitId": "id:01gugqm412gwpus",
+          "parentOrgUnitPath": "/SoftwareAutomationLab",
+          "parentOrgUnitId": "id:01gugqm4486c5f6",
+          "blockInheritance": false,
+          "children": [],
+          "collapsed": true
+        },
+        {
+          "kind": "admin#directory#orgUnit",
+          "etag": "\"iwpzoDgSq9BJw-XzORg0bILYPVc/xonbphgQbvwJGH1p9CmMNCVtpKc\"",
+          "name": "Chris",
+          "description": "",
+          "orgUnitPath": "/SoftwareAutomationLab/Chris",
+          "orgUnitId": "id:01gugqm43mgk8il",
+          "parentOrgUnitPath": "/SoftwareAutomationLab",
+          "parentOrgUnitId": "id:01gugqm4486c5f6",
+          "blockInheritance": false,
+          "children": [],
+          "collapsed": true
+        }
+      ],
+      "collapsed": true
+    }
+  ]
+}

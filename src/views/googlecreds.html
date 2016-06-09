@@ -1,0 +1,58 @@
+<div layout="row" layout-align="start" class="dialogCard" id="credEditor">
+  <md-card layout="column" layout-align="start center" flex="50">
+
+    <md-toolbar class="md-padding uploadError" layout="row" layout-align="center start" ng-if="error">
+      <i class="fa fa-exclamation-circle"></i>
+      <div>{{error}}</div>
+      <i class="fa fa-times" ng-click="closeError()"></i>
+    </md-toolbar>
+
+    <form name="jwtForm" layout-align="center" layout-fill="" class="md-padding">
+      {{msg}}
+      <div layout="column" flex="" layout-align="start">
+        <div class="keyHelp">
+          <!--This is the section where some documentation should be written about how to get this key. Explain thoroughly.-->
+          <a
+            href="https://developers.google.com/admin-sdk/directory/v1/guides/delegation#create_the_service_account_and_its_credentials"
+            target="_blank">
+          Need help?
+          </a>
+        </div>
+        <md-input-container class="md-block md-text-field" layout-fill="">
+          <input type="text" required name="domain" pattern="\b[\w-]+(?:\.[\w-]+){1,10}\b"
+                 ng-model="domain">
+          <label>Enter Domain (example.com)</label>
+          <div ng-messages="jwtForm.domain.$error" class="msgs">
+            <div ng-message="required">Required</div>
+            <div ng-message="pattern">Enter a valid domain.</div>
+          </div>
+        </md-input-container>
+        <div layout="row">
+          <md-button class="md-raised md-accent" ng-hide="content">
+            <label for="file-input" style="display:block; cursor: pointer !important;"><i class="fa fa-download"></i> Choose
+              key file</label>
+          </md-button>
+          <md-button ng-click="cancel()" class="cancel" ng-if="!content">
+            Cancel
+          </md-button>
+        </div>
+        <input id="file-input" type="file" accept="application/json" on-read-file="showContent($fileContent)"
+               onclick="this.value = null" style="visibility: hidden">
+      </div>
+      <div ng-if="content">
+        <label>Key Preview</label>
+        <div>
+          <pre class="keyContent">{{content | json}}</pre>
+        </div>
+      </div>
+      <md-input-container layout="row" ng-show="content">
+        <md-button class="md-raised md-accent" ng-click="uploadFile()">
+          Upload Key
+        </md-button>
+        <md-button class="cancel" ng-click="cancelUpload()">
+          Cancel
+        </md-button>
+      </md-input-container>
+    </form>
+  </md-card>
+</div>

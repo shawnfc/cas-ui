@@ -1,0 +1,12 @@
+<div layout="row" layout-align="start" layout-wrap class="main-container">
+  <title state-title></title>
+  <webstore-tile class="webstore-tile" layout="column" flex access="viewer,promoter,scheduler"
+                 permission='{"appId": "{{buildPackage.appId}}"}' access-permission-type="3"
+                 flex-gt-sm-auto flex-sm="40" flex-xs="100"
+                 ng-repeat="buildPackage in buildPackages| filter:search" tile="buildPackage">
+  </webstore-tile>
+  <h1 class="pageBtn">
+      <md-button ng-click="showNewAppDialog()" aria-label="New App">Create New App</md-button>
+      <md-tooltip>Create a new chrome application</md-tooltip>
+  </h1>
+</div>

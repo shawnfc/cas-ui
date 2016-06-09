@@ -1,0 +1,54 @@
+<md-content layout-padding layout="row">
+    <form name="appForm">
+        <md-input-container class="md-block">
+            <p>Do you have your application zip File?</p>
+            <md-radio-group ng-model="vm.ownFile" layout="row" ng-change="vm.ResetForm()">
+                <md-radio-button value="yes">Yes</md-radio-button>
+                <md-radio-button value="no"> No </md-radio-button>
+            </md-radio-group>
+        </md-input-container>
+        <div ng-if="vm.ownFile == 'no' || vm.fileLoaded">
+          <div layout-gt-xs="row">
+            <md-input-container class="md-block" flex-gt-xs>
+              <label>Application Name</label>
+              <input ng-disabled="vm.ownFile == 'yes'" ng-model="vm.app.appName">
+            </md-input-container>
+          </div>
+          <md-input-container class="md-block">
+            <label>Description</label>
+            <textarea ng-model="vm.app.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>App Image</label>
+            <img ng-if="vm.app.image" ng-src="{{vm.app.image}}" style="max-width:120px" />
+            <div ng-if="!vm.fileLoaded">
+              <md-button class="md-raised" ng-hide="content" ng-click="vm.ClickElement('appImage1')">
+                <i class="fa fa-upload"></i>Upload Image
+              </md-button>
+              <input id="appImage1" type="file" accept="image/*" on-read-file="vm.LoadImg($fileContent)" onclick="this.value = null"
+                     style="visibility: hidden">
+            </div>
+          </md-input-container>
+        </div>
+        <md-input-container class="md-block" ng-if="vm.ownFile == 'yes' && !vm.fileLoaded">
+            <span>Please upload your chrome app in a zip file</span>
+            <md-button class="md-raised" ng-hide="content" ng-click="vm.ClickElement('file-input')">
+                <i class="fa fa-upload"></i>Upload zip
+            </md-button>
+            <input id="file-input" type="file" accept="application/zip" on-read-file="vm.ShowContent($fileContent)" onclick="this.value = null"
+            style="visibility: hidden">
+            <span ng-if="vm.error">{{vm.error}}</span>
+        </md-input-container>
+        <div layout-gt-sm="row" ng-if="vm.ownFile">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Select Default Space</label>
+                <md-select ng-model="vm.app.defaultSpaceId">
+                    <md-option ng-repeat="space in vm.spaces" value="{{space.spaceId}}">
+                        {{space.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <md-button ng-disabled="!appForm.$error" ng-click="vm.NewChromeApp()" class="md-primary">Create</md-button>
+    </form>
+</md-content>

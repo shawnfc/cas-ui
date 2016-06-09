@@ -1,0 +1,55 @@
+<div layout="column" flex>
+  <md-toolbar class="md-whiteframe-z2 main-header">
+    <div class="md-toolbar-tools">
+      <a ui-sref="common.webstore">
+        <div layout="row" layout-align="start center">
+          <img src="../images/HomeDepotLogo.png" class="thdLogo" alt="Home Depot logo" style="width: 50px;">
+          <div layout-padding="">Chrome Application Server</div>
+        </div>
+      </a>
+    </div>
+  </md-toolbar>
+  <md-content md-scroll-y="" layout="column" class="layout-content">
+    <h1 class="page-title" style="padding-left: 20px">{{menu.currentPage.name}}</h1>
+    <div layout-padding="" flex="noshrink" layout="row" layout-align="center center" flex style="padding-top: 48px">
+        <md-card id="login_card">
+          <md-toolbar>
+            <div layout="row" layout-align="start center" layout-margin>
+              <i class="fa fa-sign-out"></i>
+              <span>CAS - Sign In</span>
+              <div class="login_heading" style="text-align: center; margin-bottom: 32px;">
+              </div>
+            </div>
+          </md-toolbar>
+          <form name="loginForm" id="loginForm" ng-submit="vm.login()" style="padding: 24px 35px;">
+            <div class="has-error" role="alert" ng-show="vm.invalidLogin">Oh snap! Email and password combination not recognised</div>
+
+            <md-input-container class="md-text-field md-block">
+              <input type="text"  name="email" ng-model="vm.email" required>
+              <label>User ID</label>
+              <ng-messages for="loginForm.email.$error" multiple>
+                <ng-message when="required">Username field is required</ng-message>
+              </ng-messages>
+            </md-input-container>
+
+            <md-input-container class="md-text-field md-inline-block">
+              <input name="password" type="password" ng-model="vm.password" required>
+              <label>Password</label>
+              <ng-messages for="loginForm.password.$error" multiple>
+                <ng-message when="required">Password field is required</ng-message>
+              </ng-messages>
+            </md-input-container>
+
+            <md-input-container>
+              <md-button class="md-accent md-raised" type="submit" id="signIn">Sign In</md-button>
+            </md-input-container>
+          </form>
+            <md-input-container layout="row" layout-align="center center" layout-margin class="signInFooter">
+              <md-checkbox style="margin: 0px" class="md-accent md-hue-1">Stay signed in</md-checkbox>
+              <span flex></span>
+              <a href="/help"><i class="fa fa-question-circle"></i></a>
+            </md-input-container>
+        </md-card>
+      </div>
+  </md-content>
+</div>

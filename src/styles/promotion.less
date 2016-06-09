@@ -1,0 +1,80 @@
+@import "global";
+
+.promotion {
+  md-dialog-content {
+    margin: 24px;
+  }
+
+  border-radius: 2px;
+  min-height: 233px;
+  width: 504px;
+  .md-dialog-content {
+    overflow-y: hidden;
+    padding: 0;
+    .fa-times {
+      color: #999;
+    }
+  }
+  input {
+    font-family: "open sans", sans-serif;
+    color: #999;
+  }
+  h2 {
+    font-weight: normal;
+    margin: 0;
+    font-size: 24px;
+  }
+  p {
+    color: #6B6767;
+    margin-top: 6px;
+    font-size: 18px;
+  }
+
+  md-radio-group {
+    md-radio-button:not([disabled]).md-primary .md-on {
+      background-color: green;
+    }
+    md-radio-group .md-checked:not([disabled]).md-primary .md-ink-ripple {
+      color: rgba(0,255,0,0.26);
+    }
+  }
+
+  md-dialog-actions {
+    margin-top: 18px;
+    button {
+      width: 119px;
+      height: 40px;
+    }
+    a.md-button.md-default-theme.md-raised:not([disabled]):hover, a.md-button.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-raised:not([disabled]):hover, .md-button.md-raised:not([disabled]):hover {
+      background-color: @thdOrange;
+    }
+    .promotion-save {
+      text-transform: none;
+      color: #fff;
+      background: @thdOrange;
+      font-size: 18px;
+      margin: 0;
+      padding: 0;
+      &:hover {
+        color: #fff;
+        background: @thdOrange;
+      }
+    }
+    .cancel {
+      text-transform: none;
+      font-size: 18px;
+      color: @thdOrange;
+      background: none;
+      padding-right: 0;
+      margin-right: 0;
+      margin-top: 0;
+      width: 63px;
+      &:hover {
+        background: none;
+      }
+    }
+  }
+  .fa-times {
+    cursor: pointer;
+  }
+}

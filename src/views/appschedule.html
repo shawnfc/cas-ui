@@ -1,0 +1,10 @@
+<calendar-md flex layout layout-fill
+             calendar-direction="vertical"
+             on-prev-month="prevMonth"
+             on-next-month="nextMonth"
+             on-day-click="dayClick"
+             title-format="'MMMM y'"
+             ng-model='selectedDate'
+             week-starts-on="firstDayOfWeek",
+             day-content="vm.SetDayContent">
+</calendar-md>

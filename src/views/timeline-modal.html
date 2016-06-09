@@ -1,0 +1,27 @@
+<md-dialog ng-cloak class="promotion md-margin" layout="column">
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <div layout="row">
+                <h2>Build Timeline</h2>
+                <span flex></span>
+                <i class="fa fa-times" ng-click="vm.Cancel()"></i>
+            </div>
+            <timeline>
+                <timeline-event ng-repeat="event in vm.timeline" side="{{$even?'right':'left'}}">
+                    <time>{{event.occurred | date: 'dd/MM/yyyy @ h:MM a'}}</time>
+                    <timeline-badge class="{{event.eventType}}">
+                        <i class="fa" ng-class="{'fa-clock-o': event.eventType == 'scheduled',
+                                                'fa-cloud-upload': event.eventType == 'promoted',
+                                                'fa-plus': event.eventType == 'created'}"></i>
+                    </timeline-badge>
+                    <timeline-panel class="{{event.eventType}}">
+                        <timeline-heading>
+                            <span>{{event.eventType}} by {{event.who}}</span>
+                        </timeline-heading>
+                        <p>{{event.detail}}</p>
+                    </timeline-panel>
+                </timeline-event>
+            </timeline>
+        </div>
+    </md-dialog-content>
+</md-dialog>

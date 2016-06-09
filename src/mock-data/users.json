@@ -1,0 +1,121 @@
+[
+  {
+    "name": "admin",
+    "username": "admin",
+    "fullname": "Joshua Lunsford",
+    "issuer": {
+      "id": "69ba6524-8562-4b64-9554-3f2366d77fa2",
+      "name": "iws-cas-core",
+      "version": "v0.0.16"
+    },
+    "authorization": {
+      "user": {
+        "roles": [
+          {
+            "name": "admin"
+          }
+        ]
+      }
+    },
+    "iat": 1454337251,
+    "exp": 1454338460,
+    "iss": "iws-cas-core[69ba6524-8562-4b64-9554-3f2366d77fa2]"
+  },
+  {
+      "name": "axd8012",
+    "username": "axd8012",
+    "fullname": "Alejandro Dobarganes",
+    "issuer": {
+      "id": "69ba6524-8562-4b64-9554-3f2366d77fa2",
+      "name": "iws-cas-core",
+      "version": "v0.0.16"
+    },
+    "authorization": {
+      "user": {
+        "roles": [
+          {
+            "name": "scheduler",
+            "emittedObject": {
+              "required": {
+                "properties": [
+                  {
+                    "name": "appId",
+                    "value": "cfflgggnefmchloliajppkfnmnagehlc"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "promoter",
+            "emittedObject": {
+              "required": {
+                "properties": [
+                  {
+                    "name": "appId",
+                    "value": "cfflgggnefmchloliajppkfnmnagehla"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "viewer"
+          }
+        ]
+      }
+    },
+    "iat": 1454337251,
+    "exp": 1454338460,
+    "iss": "iws-cas-core[69ba6524-8562-4b64-9554-3f2366d77fa2]"
+  },
+  {
+    "name": "sxc8286",
+    
+    "username": "sxc8286",
+    "fullname": "Shawn Conrad",
+    "issuer": {
+      "id": "69ba6524-8562-4b64-9554-3f2366d77fa2",
+      "name": "iws-cas-core",
+      "version": "v0.0.16"
+    },
+    "authorization": {
+      "user": {
+        "roles": [
+          {
+            "name": "scheduler",
+            "emittedObject": {
+              "required": {
+                "properties": [
+                  {
+                    "name": "appId",
+                    "value": "cfflgggnefmchloliajppkfnmnagehlc"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "promoter",
+            "emittedObject": {
+              "required": {
+                "properties": [
+                  {
+                    "name": "appId",
+                    "value": "cfflgggnefmchloliajppkfnmnagehla"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "viewer"
+          }
+        ]
+      }
+    },
+    "iat": 1454337251,
+    "exp": 1454338460,
+    "iss": "iws-cas-core[69ba6524-8562-4b64-9554-3f2366d77fa2]"
+  }
+]

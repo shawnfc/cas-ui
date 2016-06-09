@@ -1,0 +1,116 @@
+<div class="builds-windows">
+  <md-card class="md-whiteframe-z1 buildsView">
+    <div style="padding:25px;">
+      <div class="summaryHeading">Chrome App ID: <span style="max-width:200px; color:#555;">{{vm.appDetails.chromeAppId}}</span></div>
+      <div layout="row" layout-fill>
+        <div style="max-width:200px; margin: 23px 20px 0 0;">
+          <img src="{{vm.img}}" alt="app image"/>
+        </div>
+        <div layout-fill>
+          <md-table-container ng-if="vm.appDetails.scheduledBuilds" layout="column" layout-fill>
+            <table md-table>
+              <thead md-head md-order="vm.adQuery.order" md-on-reorder="vm.OnReorder(vm.adQuery)">
+              <tr md-row>
+                <th md-column>Spaces</th>
+                <th md-column>Scheduled</th>
+                <th md-column>Deployed</th>
+              </tr>
+              </thead>
+              <tbody md-body>
+              <tr md-row
+                  ng-repeat="sb in vm.appDetails.scheduledBuilds | filter: search | orderBy: vm.adQuery.order | limitTo: vm.adQuery.limit : (vm.adQuery.page -1) * vm.adQuery.limit">
+                <td md-cell>{{sb.space}}</td>
+                <td md-cell>{{sb.scheduledDate | date: 'MM/dd/yyyy @ h:mma'}} | v{{sb.version}}</td>
+                <td md-cell><div ng-if="vm.IsPast(sb.scheduledDate)">{{sb.scheduledDate | date: 'MM/dd/yyyy @ h:mma'}} | v{{sb.version}}</div></td>
+              </tr>
+              </tbody>
+            </table>
+            <md-table-pagination md-limit="vm.adQuery.limit" md-page="vm.adQuery.page"
+                                 md-total="{{vm.appDetails.scheduledBuilds.length}}"
+                                 md-on-paginate="vm.OnPaginate(vm.adQuery)"
+                                 md-page-select></md-table-pagination>
+          </md-table-container>
+          <div ng-if="!vm.appDetails.scheduledBuilds">Nothing has been <scheduled class=""></scheduled></div>
+        </div>
+      </div>
+    </div>
+  </md-card>
+  <md-card class="md-whiteframe-z1 buildsView">
+
+    <md-table-container layout="column" layout-fill>
+      <table md-table>
+        <thead md-head md-order="vm.query.order" md-on-reorder="vm.OnReorder(vm.query)">
+        <tr md-row>
+          <th md-column>Status</th>
+          <th md-column md-numeric md-order-by="version">Version</th>
+          <th md-column md-order-by="commitId">Commit</th>
+          <th md-column md-order-by="committerId">Committer</th>
+          <th md-column md-numeric md-order-by="buildTs">Build Date</th>
+          <!--<th md-column md-numeric md-order-by="buildDuration">Duration</th>-->
+          <th md-column>XML</th>
+          <th md-column>Schedule</th>
+          <th md-column>Promote</th>
+          <th md-column>Timeline</th>
+        </tr>
+        </thead>
+        <tbody md-body>
+
+        <tr md-row
+            ng-repeat="b in vm.buildsList | filter: search | orderBy: vm.query.order | limitTo: vm.query.limit : (vm.query.page -1) * vm.query.limit">
+          <td md-cell>
+            <!--<i class="fa fa-thumbs-o-up">-->
+              <!--<md-tooltip>{{b.appId === 'cfflgggnefmchloliajppkfnmnagehlc' ? "Failed" : "Good"}}</md-tooltip>-->
+            <!--</i>-->
+            Good
+          </td>
+          <td md-cell>v{{b.version}}</td>
+          <td md-cell><a ng-href="http://{{b.commitUrl}}" target="_blank">{{b.commitId}}</a></td>
+          <td md-cell>{{b.committerId}}</td>
+          <td md-cell style="padding-right:22px;">{{b.buildTs | date: 'MM/dd/yyyy @ h:mma'}}</td>
+          <!--<td md-cell>{{b.buildDuration}}</td>-->
+          <td md-cell>
+            <md-button class="md-icon-button md-mini" ng-href="{{b.updateUrl}}" target="_blank">
+              <md-tooltip>Open Omaha XML</md-tooltip>
+              <i class="fa fa-code"></i>
+            </md-button>
+          </td>
+          <td md-cell>
+            <md-button access="admin, scheduler" permission='{"appId": "{{b.appId}}"}' access-permission-type="3"
+                       class="md-icon-button md-mini"
+                       ng-click="vm.ShowScheduleDialog($event, b)" aria-label="Favorite">
+              <md-tooltip>Schedule</md-tooltip>
+              <i class="fa fa-calendar"></i>
+            </md-button>
+          </td>
+          <td md-cell>
+            <md-button access="admin, promoter" permission='{"appId": "{{b.appId}}"}' access-permission-type="3"
+                       class="md-icon-button md-accent md-mini"
+                       ng-click="vm.ShowPromotionDialog($event, b)" aria-label="Favorite">
+              <md-tooltip>Promote</md-tooltip>
+              <i class="fa fa-cloud-upload"></i>
+            </md-button>
+          </td>
+          <td md-cell>
+            <md-button access="admin, scheduler" permission='{"appId": "{{b.appId}}"}' access-permission-type="3"
+                       class="md-icon-button md-accent md-mini"
+                       ng-click="vm.ShowTimeline(b)" aria-label="Favorite">
+              <md-tooltip>Show Timeline</md-tooltip>
+              <i class="fa fa-history"></i>
+            </md-button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+    <md-table-pagination md-limit="vm.query.limit" md-page="vm.query.page" md-total="{{vm.buildsList.length}}"
+                         md-on-paginate="vm.OnPaginate(vm.query)"
+                         md-page-select></md-table-pagination>
+
+  </md-card>
+
+  <h1 class="pageBtn" ui-sref="common.webstore.apps">
+    <md-button aria-label="Back to Apps"><i class="fa fa-chevron-left"></i> Back to Apps Page</md-button>
+    <md-tooltip>Create a new chrome application</md-tooltip>
+  </h1>
+
+</div>

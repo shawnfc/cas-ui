@@ -1,0 +1,9 @@
+///<reference path='./tsd/tsd.d.ts' />
+/// <reference path="test/bluebird/bluebird.d.ts" />
+/// <reference path="test/express/express.d.ts" />
+/// <reference path="test/jasmine/jasmine.d.ts" />
+/// <reference path="test/karma/karma.d.ts" />
+/// <reference path="test/log4js/log4js.d.ts" />
+/// <reference path="test/mime/mime.d.ts" />
+/// <reference path="test/node/node.d.ts" />
+/// <reference path="test/serve-static/serve-static.d.ts" />

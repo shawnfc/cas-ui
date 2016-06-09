@@ -1,0 +1,34 @@
+<md-card class="tile-small md-whiteframe-z1" flex="">
+
+  <a href="#/webstore/apps/{{vm.Tile.appId}}">
+
+    <div layout="column">
+
+      <!--App Image-->
+      <div layout="row" class="appImage" layout-align="center center">
+        <img ng-src="{{vm.img}}" alt="Application image"/>
+      </div>
+
+      <!--App Info-->
+      <div class="tile-info" layout="column">
+
+        <div style="display: table;">
+          <div style="display: table-cell; vertical-align: middle;">
+            <div class="md-padding">{{vm.Tile.appName}}
+              <md-tooltip>Application name</md-tooltip>
+            </div>
+          </div>
+        </div>
+
+        <div class="builds-view md-padding">
+          View Builds
+        </div>
+
+      </div>
+
+    </div>
+
+  </a>
+</md-card>
+
+

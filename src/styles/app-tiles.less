@@ -1,0 +1,52 @@
+@import "global";
+
+webstore-tile {
+  overflow: hidden;
+  margin: 0 30px 30px 0;
+  float: left;
+  min-width: 268px;
+}
+
+.webstore-tile {
+  overflow: hidden;
+  margin: 0 30px 30px 0;
+  float: left;
+  min-width:268px !important;
+}
+
+md-card.tile-small {
+  word-wrap: normal;
+  a {
+    text-decoration: none;
+  }
+  min-width: 268px;
+  position: relative;
+  max-width: 268px;
+  height: 293px;
+  border-radius: 2px;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.54);
+  background: #ffffff;
+  margin-left: 0;
+  .appImage img {
+    border-radius: 2px 2px 0 0;
+    width: 100%;
+  }
+  .tile-info {
+    position: absolute;
+    bottom: 0;
+    font-size: 1.3em;
+    color: #555;
+    margin-bottom: 10px;
+    width: 100%;
+    .builds-view {
+      display: table-cell;
+      vertical-align: middle;
+      border-top: 1px solid #ddd;
+      color: @thdOrange;
+      font-weight: bold;
+      font-size: .85em;
+      padding-top: 13px;
+    }
+  }
+}

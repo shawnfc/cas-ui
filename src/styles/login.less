@@ -1,0 +1,49 @@
+@import "global";
+
+md-card#login_card {
+  padding: 0;
+  md-toolbar {
+    font-size: 28px;
+    .fa {
+      border:1px solid rgba(255,255,255,0.00);
+      font-size:36px;
+      color:#ffffff;
+      line-height:36px;
+      background: #f96302;
+      border: 2px solid #ffffff;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      padding: 5px;
+      margin: 7px 12px 7px 7px;
+    }
+  }
+  #loginForm {
+    padding: 8px;
+    .md-input {
+      height: 44px;
+    }
+    width: 318px;
+    margin: 0 auto;
+    button#signIn {
+      margin-left: 0;
+      text-transform: capitalize;
+    }
+    md-input-container:not(md-input-invalid).md-input-focused label {
+      color: #00AE4D;
+    }
+    .has-error {
+      text-align: center;
+      margin-bottom: 12px;
+      color: red;
+    }
+  }
+  .signInFooter {
+    width: 340px;
+    margin: 0 auto 20px auto;
+    a i.fa-question-circle {
+      color: #ddd;
+      font-size: 22px;
+    }
+  }
+}

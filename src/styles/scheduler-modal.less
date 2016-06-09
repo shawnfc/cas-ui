@@ -1,0 +1,852 @@
+@import "global";
+
+.scheduler-modal {
+  width: 90%;
+  max-width: 780px;
+  md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+    background-color: transparent;
+    color: #555555;
+    .schedTitle {
+      font-size: 24px;
+      span.schedSubTitle {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+  md-steppers-wrapper {
+    border-bottom: 1px solid #bbb;
+  }
+  md-steppers-canvas {
+    width: 95%;
+    margin: 0 auto;
+  }
+  md-steppers-canvas md-pagination-wrapper {
+    width: 95% !important;
+  }
+  md-content {
+    background: transparent;
+    form {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+  md-radio-group {
+    width: 90%;
+  }
+  md-radio-button {
+    display: inline-block;
+    margin-right: 90px;
+  }
+
+  //Treeview
+  .treeview-container {
+    ul {
+      list-style-type: none;
+      li {
+        line-height: 25px;
+      }
+    }
+    max-height: 350px;
+    max-width: 100%;
+    overflow: auto;
+    margin-bottom: 10px;
+    //border: 1px solid lightgray;
+    //border-radius: 4px;
+
+    div[data-tree-model] li .collapsed {
+      padding: 1px 10px;
+      background-image: none;
+      background-repeat: no-repeat;
+    }
+
+    div[data-tree-model] li .collapsed {
+      padding-left: 32px;
+      position: relative;
+    }
+    div[data-tree-model] li .collapsed:before {
+      position: absolute;
+      font-family: 'FontAwesome';
+      top: 0;
+      left: 10px;
+      content: "\f07b";
+      font-style: normal;
+    }
+
+    div[data-tree-model] li .expanded {
+      padding: 1px 10px;
+      background-image: none;
+      background-repeat: no-repeat;
+    }
+
+    div[data-tree-model] li .expanded {
+      padding-left: 32px;
+      position: relative;
+    }
+    div[data-tree-model] li .expanded:before {
+      position: absolute;
+      font-family: 'FontAwesome';
+      top: 0;
+      left: 10px;
+      content: "\f07c";
+      font-style: normal;
+    }
+
+    div[data-tree-model] li .normal {
+      padding: 1px 10px;
+      background-image: none;
+      background-repeat: no-repeat;
+    }
+
+    div[data-tree-model] li .normal {
+      padding-left: 32px;
+      position: relative;
+    }
+    div[data-tree-model] li .normal:before {
+      position: absolute;
+      font-family: 'FontAwesome';
+      color: grey;
+      top: 0;
+      left: 10px;
+      content: "\f15b";
+      font-style: normal;
+    }
+  }
+  md-button {
+    box-shadow: none;
+  }
+  .finalStepBtns {
+    margin: 30px 0 0 0;
+    padding-right: 0;
+    width: 100%;
+  }
+
+  //Datepicker
+  //remove default icons from left of input area
+  md-datepicker button.md-datepicker-button {
+    display: none;
+  }
+  label.datepickerLabel {
+    font-size: 14px;
+    color: @greyText;
+  }
+  .md-datepicker-input, .timePicker {
+    label {
+      font-size: 14px;
+      margin-top: 0px;
+      color: @greyText;
+    }
+    .timePickerInput{
+      border: none;
+      height: 50px;
+      color: #9f9999;
+    }
+    font-size: 18px;
+    width: 190px;
+    height: 50px;
+    padding-left: 10px;
+    color: #9f9999;
+  }
+  //invalid underline for datepicker
+  .md-datepicker-input-container.md-datepicker-invalid {
+    border-bottom-color: rgb(244,67,54);
+  }
+  .md-datepicker-invalid {
+    border-bottom-color: rgb(244,67,54);
+  }
+  //invalid underline for timepicker
+  md-input-container.timePicker.timePickerInvalid {
+    border-bottom-color: rgb(244,67,54);
+  }
+  .md-datepicker-input-container, .timePicker {
+    padding-bottom: 0;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px;
+    margin-left: 0;
+  }
+  .md-datepicker-input-container {
+    .md-button {
+      font-size: 20px;
+      color: #D8D8D8;
+      margin: 0;
+      padding: 0;
+    }
+    .md-datepicker-triangle-button.md-button.md-icon-button {
+      margin: 12px 12px 0 0;
+      line-height: 50px;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+
+  //Timepicker
+  md-input-container label:not(.md-container-ignore) {
+    position: absolute;
+    bottom: 100%;
+    left: -2px;
+    right: auto;
+    top: -48px;
+    font-size: 14px;
+    color: #999;
+  }
+  md-input-container {
+    margin-bottom: 0;
+  }
+  .timePicker {
+    padding-top: 0;
+    margin-left: 13px;
+  }
+  md-input-container.md-input-invalid.md-input-focused label {
+    color: #999999;
+  }
+  md-input-container:not(.md-input-invalid).md-input-focused label {
+    color: #999999;
+  }
+  .timeZone {
+    color: #999;
+    margin: 0 0 6px 14px;
+    font-size: 18px;
+  }
+
+  //md-dialog-actions {
+  //  margin-top: 18px;
+  //  button {
+  //    width:119px;
+  //    height: 40px;
+  //  }
+  //  a.md-button.md-default-theme.md-raised:not([disabled]):hover, a.md-button.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-raised:not([disabled]):hover, .md-button.md-raised:not([disabled]):hover {
+  //    background-color: @thdOrange;
+  //  }
+    //.schedule {
+    //  text-transform: none;
+    //  color: #fff;
+    //  background: @thdOrange;
+    //  font-size: 18px;
+    //  margin: 0;
+    //  padding: 0;
+    //  &:hover {
+    //    color: #fff;
+    //    background: @thdOrange;
+    //  }
+    //}
+    //.cancel {
+    //  text-transform: none;
+    //  font-size: 18px;
+    //  color: @thdOrange;
+    //  background: none;
+    //  padding-right: 0;
+    //  margin-right: 0;
+    //  margin-top: 0;
+    //  width: 63px;
+    //  &:hover {
+    //    background: none;
+    //  }
+    //}
+  //}
+}
+
+//.scheduler-modal {
+//  //Scheduler View
+//  md-dialog-content {
+//    margin: 24px;
+//  }
+//
+//  border-radius: 2px;
+//  min-height:233px;
+//  width: 504px;
+//  .md-dialog-content {
+//    overflow-y: hidden;
+//    padding: 0;
+//    .fa-times {
+//      color: #999;
+//    }
+//  }
+//  input {
+//    font-family: "open sans", sans-serif;
+//    color: #999;
+//  }
+//  input[type=date]::-webkit-calendar-picker-indicator {
+//    display: none;
+//  }
+//  h2 {
+//    font-weight: normal;
+//    margin: 0;
+//    font-size: 18px;
+//    font-weight: bold;
+//  }
+//  p {
+//    //subheading info
+//    color: green;
+//    margin-top: 6px;
+//    margin-bottom: 4px;
+//    font-size: 13px;
+//    text-transform: uppercase;
+//  }
+//
+//  //Treeview
+//  .treeview-container {
+//    ul {
+//      list-style-type: none;
+//      li {
+//        line-height: 25px;
+//      }
+//    }
+//    max-height: 350px;
+//    max-width: 100%;
+//    overflow: auto;
+//    margin-bottom: 10px;
+//    border: 1px solid lightgray;
+//    border-radius: 4px;
+//
+//    div[data-tree-model] li .collapsed {
+//      padding: 1px 10px;
+//      background-image: none;
+//      background-repeat: no-repeat;
+//    }
+//
+//    div[data-tree-model] li .collapsed {
+//      padding-left: 32px;
+//      position: relative;
+//    }
+//    div[data-tree-model] li .collapsed:before {
+//      position: absolute;
+//      font-family: 'FontAwesome';
+//      top: 0;
+//      left: 10px;
+//      content: "\f07b";
+//      font-style: normal;
+//    }
+//
+//    div[data-tree-model] li .expanded {
+//      padding: 1px 10px;
+//      background-image: none;
+//      background-repeat: no-repeat;
+//    }
+//
+//    div[data-tree-model] li .expanded {
+//      padding-left: 32px;
+//      position: relative;
+//    }
+//    div[data-tree-model] li .expanded:before {
+//      position: absolute;
+//      font-family: 'FontAwesome';
+//      top: 0;
+//      left: 10px;
+//      content: "\f07c";
+//      font-style: normal;
+//    }
+//
+//    div[data-tree-model] li .normal {
+//      padding: 1px 10px;
+//      background-image: none;
+//      background-repeat: no-repeat;
+//    }
+//
+//    div[data-tree-model] li .normal {
+//      padding-left: 32px;
+//      position: relative;
+//    }
+//    div[data-tree-model] li .normal:before {
+//      position: absolute;
+//      font-family: 'FontAwesome';
+//      color: grey;
+//      top: 0;
+//      left: 10px;
+//      content: "\f15b";
+//      font-style: normal;
+//    }
+//
+//  }
+//}
+//
+//  //remove default icons from left of input area
+//  md-datepicker button.md-datepicker-button {
+//    display: none;
+//  }
+//  label.datepickerLabel {
+//    position: absolute;
+//    top: 0;
+//    left: 10px;
+//    font-size: 10px;
+//    color: @greyText;
+//    z-index: 1000;
+//  }
+//  .md-datepicker-input, .timePicker {
+//    label {
+//      font-size: 10px;
+//      margin-top: 0px;
+//      color: #999999;
+//    }
+//    .timePickerInput{
+//      border: none;
+//    }
+//    font-size: 18px;
+//    width: 190px;
+//    height: 50px;
+//    background-color: @inputBg;
+//    padding-left: 10px;
+//  }
+//  //invalid underline for datepicker
+//  .md-datepicker-input-container.md-datepicker-invalid {
+//    border-bottom-color: rgb(244,67,54);
+//  }
+//  .md-datepicker-invalid {
+//    border-bottom-color: rgb(244,67,54);
+//  }
+//  //invalid underline for timepicker
+//  md-input-container.timePicker.timePickerInvalid {
+//    border-bottom-color: rgb(244,67,54);
+//  }
+//  .md-datepicker-input {
+//    padding-top: 19px;
+//  }
+//  .md-datepicker-input-container, .timePicker {
+//    padding-bottom: 0;
+//    border-bottom: 1px solid #DDDDDD;
+//    margin-left: 0;
+//  }
+//  .md-datepicker-input-container {
+//    .md-button {
+//      font-size: 20px;
+//      color: #D8D8D8;
+//      margin: 0;
+//      padding: 0;
+//    }
+//    .md-datepicker-triangle-button.md-button.md-icon-button {
+//      margin: 19px 52px 0 0;
+//      line-height: 50px;
+//      border-radius: 0;
+//      background: transparent;
+//    }
+//  }
+//  .timePicker {
+//    padding-top: 0;
+//    margin-left: 13px;
+//  }
+//  md-input-container.md-input-invalid.md-input-focused label {
+//    color: #999999;
+//  }
+//  md-input-container:not(.md-input-invalid).md-input-focused label {
+//    color: #999999;
+//  }
+//  .timeZone {
+//    color: #999;
+//    margin: 0 0 6px 14px;
+//    font-size: 18px;
+//  }
+//  md-dialog-actions {
+//    margin-top: 18px;
+//    button {
+//      width:119px;
+//      height: 40px;
+//    }
+//    a.md-button.md-default-theme.md-raised:not([disabled]):hover, a.md-button.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-raised:not([disabled]):hover, .md-button.md-raised:not([disabled]):hover {
+//      background-color: @thdOrange;
+//    }
+//    .schedule {
+//      text-transform: none;
+//      color: #fff;
+//      background: @thdOrange;
+//      font-size: 18px;
+//      margin: 0;
+//      padding: 0;
+//      &:hover {
+//        color: #fff;
+//        background: @thdOrange;
+//      }
+//    }
+//    .cancel {
+//      text-transform: none;
+//      font-size: 18px;
+//      color: @thdOrange;
+//      background: none;
+//      padding-right: 0;
+//      margin-right: 0;
+//      margin-top: 0;
+//      width: 63px;
+//      &:hover {
+//        background: none;
+//      }
+//    }
+//  }
+//  .fa-times {
+//    cursor: pointer;
+//  }
+//
+//  //PROGRESS
+//  .scheduler-progress {
+//    //display: none;
+//    .progress-header {
+//      border-radius: 2px 2px 0  0;
+//      .fa-check-circle {
+//        font-size: 24px;
+//      }
+//      height: 56px;
+//      background: #00B150;
+//      text-transform: uppercase;
+//      color: #fff;
+//      padding: 14px;
+//      p {
+//        margin: 0 0 0 15px;
+//        color: #fff;
+//        font-size: 18px;
+//      }
+//    }
+//    .progress-content {
+//      margin: 45px 35px;
+//
+//      p {
+//        margin: 7px 0 7px 0;
+//        color: #000;
+//      }
+//      .success-button {
+//        border: 1px solid #00B150;
+//        color: #00B150;
+//        font-size: 18px;
+//        text-transform: none;
+//        padding: 3px 15px;
+//        margin: 18px 0 0 0;
+//      }
+//    }
+//  }
+//
+//  //SUCCESS MESSAGE
+//  //.scheduler-success {
+//  //display: none;
+//  .error {
+//    background: red;
+//  }
+//  .success {
+//    background: #00B150;
+//  }
+//  .popupHeader {
+//    border-radius: 2px 2px 0  0;
+//    .fa-check-circle {
+//      font-size: 24px;
+//    }
+//    height: 56px;
+//    //background: #00B150;
+//    text-transform: uppercase;
+//    color: #fff;
+//    padding: 14px;
+//    p {
+//      margin: 0 0 0 15px;
+//      color: #fff;
+//      font-size: 18px;
+//    }
+//  }
+//  .popupContent {
+//    margin: 24px 35px;
+//
+//    p {
+//      margin: 7px 0 7px 0;
+//      color: #000;
+//    }
+//    .button {
+//
+//      font-size: 18px;
+//      text-transform: none;
+//      padding: 3px 15px;
+//      margin: 18px 0 0 0;
+//    }
+//    .btn-success {
+//      border: 1px solid #00B150;
+//      color: #00B150;
+//    }
+//    .btn-error {
+//      border: 1px solid red;
+//      color: red;
+//    }
+//  }
+//  .fail-success {
+//    //display: none;
+//    .failHeader {
+//      border-radius: 2px 2px 0  0;
+//      .fa-check-circle {
+//        font-size: 24px;
+//      }
+//      height: 56px;
+//      background: red;
+//      text-transform: uppercase;
+//      color: #fff;
+//      padding: 14px;
+//      p {
+//        margin: 0 0 0 15px;
+//        color: #fff;
+//        font-size: 18px;
+//      }
+//    }
+//    .failContent {
+//      margin: 24px 35px;
+//
+//      p {
+//        margin: 7px 0 7px 0;
+//        color: #000;
+//      }
+//
+//      .fail-button {
+//        border: 1px solid red;
+//        color: #00B150;
+//        font-size: 18px;
+//        text-transform: none;
+//        padding: 3px 15px;
+//        margin: 18px 0 0 0;
+//      }
+//    }
+//  }
+//
+////The Calendar
+//.date-container {
+//  position: relative;
+//}
+//.md-datepicker-calendar-pane.md-pane-open {
+//  background: #fff;
+//  border: 1px solid #ddd;
+//  .md-datepicker-input-mask {
+//    //removes blank area space above days of the week
+//    height: 0;
+//  }
+//}
+//.md-calendar-day-header th {
+//  height: 45px;
+//}
+//.md-calendar-day-header {
+//  height:45px;
+//  background: #eee;
+//  font-size: 16px;
+//  color: #555;
+//}
+//.md-calendar-date:not(.md-disabled) .md-calendar-date-selection-indicator {
+//  cursor: pointer;
+//  font-size: 16px;
+//  color: #555;
+//  &:hover {
+//    background-color: #009688;
+//    color: #fff;
+//  }
+//}
+//.md-calendar-month-label {
+//  font-size: 18px;
+//  color: #555;
+//  font-weight: 400;
+//}
+//md-input-container .fa-clock-o {
+//  position: absolute;
+//  left: 137px;
+//  top: 19px;
+//  font-size: 24px;
+//  color: #d8d8d8;
+//}
+//md-input-container.md-icon-float.md-input-focused, md-input-container.md-icon-float.md-input-has-value {
+//  margin-top: 0;
+//  width: 190px;
+//}
+//.timePicker {
+//  padding-bottom: 0;
+//  margin: -5px 0 0 10px;
+//}
+//md-input-container.md-default-theme:not(.md-input-invalid).md-input-has-value, md-input-container:not(.md-input-invalid).md-input-has-value label {
+//  color: @greyText;
+//}
+//
+//md-input-container.md-icon-float > label {
+//  margin-left: 0;
+//}
+//md-input-container.md-icon-float.md-input-focused, md-input-container.md-icon-float.md-input-has-value {
+//  border-bottom: 1px solid #ddd;
+//}
+//md-input-container input[type="date"], md-input-container input[type="datetime-local"], md-input-container input[type="month"], md-input-container input[type="time"], md-input-container input[type="week"] {
+//  height: 24px;
+//  color: #999;
+//}
+//md-input-container.md-icon-float > input, md-input-container.md-icon-float > textarea {
+//  padding-top: 22px;
+//}
+//
+////Stepper Styles
+//wz-step form button {
+//  margin-top: 25px;
+//}
+//
+//.steps {
+//  margin-top: 50px;
+//}
+//
+//@wz-color-default: #E6E6E6;
+//@wz-color-current: #808080;
+//@wz-color-done:    #339933;
+//@wz-color-editing: #FF0000;
+//
+//.steps-indicator {
+//  /* ---- steps quantity ---- */
+//
+//  position: absolute;
+//  right: 0;
+//  top: 55px;
+//  left: 0;
+//  margin: 0;
+//  padding: 20px 0 0 0;
+//  height: 30px;
+//  list-style: none;
+//
+//  &:before {
+//    background-color: @wz-color-default;
+//    content: '';
+//    position: absolute;
+//    height: 1px;
+//  }
+//
+//  &.steps-2:before {
+//    left: ~'calc(100% / 2 / 2)';
+//    right: ~'calc(100% / 2 / 2)';
+//  }
+//
+//  &.steps-3:before {
+//    left: ~'calc(100% / 3 / 2)';
+//    right: ~'calc(100% / 3 / 2)';
+//  }
+//
+//  &.steps-4:before {
+//    left: ~'calc(100% / 4 / 2)';
+//    right: ~'calc(100% / 4 / 2)';
+//  }
+//
+//  &.steps-5:before {
+//    left: ~'calc(100% / 5 / 2)';
+//    right: ~'calc(100% / 5 / 2)';
+//  }
+//
+//  &.steps-6:before {
+//    left: ~'calc(100% / 6 / 2)';
+//    right: ~'calc(100% / 6 / 2)';
+//  }
+//
+//  &.steps-7:before {
+//    left: ~'calc(100% / 7 / 2)';
+//    right: ~'calc(100% / 7 / 2)';
+//  }
+//
+//  &.steps-8:before {
+//    left: ~'calc(100% / 8 / 2)';
+//    right: ~'calc(100% / 8 / 2)';
+//  }
+//
+//  &.steps-9:before {
+//    left: ~'calc(100% / 9 / 2)';
+//    right: ~'calc(100% / 9 / 2)';
+//  }
+//
+//  &.steps-10:before {
+//    left: ~'calc(100% / 10 / 2)';
+//    right: ~'calc(100% / 10 / 2)';
+//  }
+//
+//  /* --- http://www.paulirish.com/2012/box-sizing-border-box-ftw/ ---- */
+//  * {
+//    -webkit-box-sizing: border-box;
+//    -moz-box-sizing: border-box;
+//    box-sizing: border-box;
+//  }
+//
+//
+//  li {
+//    position: relative;
+//    float: left;
+//    margin: 0;
+//    padding: 0;
+//    padding-top: 10px;
+//    text-align: center;
+//    line-height: 15px;
+//
+//    a {
+//      color: @wz-color-current;
+//      text-decoration: none;
+//      text-transform: uppercase;
+//      font-weight: bold;
+//      transition: 0.25s;
+//      cursor: pointer;
+//
+//      &:before {
+//        position: absolute;
+//        top: -7px;
+//        left: ~'calc(50% - 7px)';
+//        width: 14px;
+//        height: 14px;
+//        border-radius: 100%;
+//        background-color: @wz-color-default;
+//        content: '';
+//        transition: 0.25s;
+//      }
+//
+//      &:hover {
+//        color: darken(@wz-color-current, 20%);
+//      }
+//    }
+//  }
+//
+//  &.steps-2  li {
+//    width: ~'calc(100% / 2)';
+//  }
+//
+//  &.steps-3  li {
+//    width: ~'calc(100% / 3)';
+//  }
+//
+//  &.steps-4  li {
+//    width: ~'calc(100% / 4)';
+//  }
+//
+//  &.steps-5  li {
+//    width: ~'calc(100% / 5)';
+//  }
+//
+//  &.steps-6  li {
+//    width: ~'calc(100% / 6)';
+//  }
+//
+//  &.steps-7  li {
+//    width: ~'calc(100% / 7)';
+//  }
+//
+//  &.steps-8  li {
+//    width: ~'calc(100% / 8)';
+//  }
+//
+//  &.steps-9  li {
+//    width: ~'calc(100% / 9)';
+//  }
+//
+//  &.steps-10 li  {
+//    width: ~'calc(100% / 10)';
+//  }
+//
+//  &.steps-11 li  {
+//    width: ~'calc(100% / 11)';
+//  }
+//
+//  li.default {
+//    pointer-events: none;
+//
+//    a:hover {
+//      color: @wz-color-current;
+//    }
+//  }
+//
+//  li.current,
+//  li.editing {
+//    pointer-events: none;
+//  }
+//
+//  li.current a:before {
+//    background-color: @wz-color-current;
+//  }
+//
+//  li.done a:before {
+//    background-color: @wz-color-done;
+//  }
+//
+//  li.editing a:before {
+//    background-color: @wz-color-editing;
+//  }
+//}

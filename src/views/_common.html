@@ -1,0 +1,49 @@
+<div layout="column" flex>
+  <md-toolbar class="md-whiteframe-z2 main-header">
+    <div class="md-toolbar-tools">
+
+      <img class="thdLogo" src="../images/HomeDepotLogo.png" alt="Home Depot logo">
+
+      <md-button ng-click="onClickMenu()" class="md-icon-button md-mini" hide-gt-md aria-label="Menu" style="background: transparent; box-shadow: none;">
+        <i class="fa fa-bars"></i>
+      </md-button>
+      <span flex></span>
+      <div class="cas-search" flex>
+        <button class="searchBtn">Search</button>
+        <input type="text" class="cas-search" ng-model="search">
+      </div>
+    </div>
+  </md-toolbar>
+
+  <div layout="row" flex>
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2 md-closed ng-isolate-scope md-locked-open"
+                md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" tabindex="-1">
+      <md-toolbar class="md-hue-3 sideNavHeader" layout-align="center center">
+        <div layout="column" class="md-toolbar-tools-bottom inset" layout-align="start center">
+          <user greetings="" style="margin-top: 10px;" class="user-name"></user>
+          <div class="md-caption">Marietta, GA</div>
+        </div>
+      </md-toolbar>
+
+      <div layout="column" layout-align="center center" layout-margin>
+        <span class="rolesTitle">Roles</span>
+        <span class="roles" ng-repeat="role in userRoles">{{role}}</span>
+      </div>
+
+      <md-content flex role="navigation" ss-style-color="{'background-color': 'primary.default'}">
+        <ss-sidenav flex menu="menu"></ss-sidenav>
+      </md-content>
+    </md-sidenav>
+
+    <md-content flex>
+      <div layout="column" layout-fill class="main-ui-view">
+        <div layout="row" layout-align="start" flex="">
+          <h1 class="page-title">{{menu.currentPage.name}}</h1>
+        </div>
+        <ui-view layout="column" flex="noshrink">
+        </ui-view>
+      </div>
+    </md-content>
+
+  </div>
+</div>

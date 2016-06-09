@@ -1,0 +1,60 @@
+<div>
+    <md-autocomplete md-selected-item="vm.user" md-search-text="vm.searchText" md-items="user in vm.findUsers(vm.searchText)"
+    md-selected-item-change="vm.getUserRoles(user.username)" md-item-text="user.username" md-min-length="1" placeholder="Lookup a user different than you...">
+        <md-item-template>
+            <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{user.username}}</span>
+        </md-item-template>
+        <md-not-found>
+            No states matching "{{vm.searchText}}" were found.
+            <!--<a ng-click="vm.newState(vm.searchText)">Create a new one!</a>-->
+        </md-not-found>
+    </md-autocomplete>
+
+    <md-list ng-cloak ng-if="vm.user">
+        <md-list-item ng-repeat="role in vm.userRoles">
+            <span><b style="text-transform: capitalize">{{role.name}} </b></span>
+            <!--<md-checkbox ng-repeat="element in role.elements" ng-if="element.appId || element.spaceId">
+                {{vm.getAppName(element.appId)}} / {{vm.getSpaceName(element.spaceId)}}
+            </md-checkbox>-->
+            <md-chips class="custom-chips" ng-model="role.elements" readonly="vm.readOnly">
+                <md-chip-template>
+                    <span>
+                        <strong>{{vm.getAppName($chip.appId)}} / {{vm.getSpaceName($chip.spaceId)}}</strong>
+                    </span>
+                </md-chip-template>
+                <button ng-click="vm.removeUserRole($chip.userRoleId)" md-chip-remove class="md-primary chip">
+                    <md-icon md-svg-icon="md-close"></md-icon>
+                </button>
+            </md-chips>
+        </md-list-item>
+    </md-list>
+
+    <div layout="row" ng-if="vm.user" layout-margin layout-align="start start">
+        <div>
+            <md-subheader class="md-no-sticky">Roles</md-subheader>
+            <md-radio-group ng-model="vm.newUserRole.role">
+                <md-radio-button ng-repeat="role in vm.roles" ng-value="role" aria-label="{{role}}">
+                    {{role}}
+                </md-radio-button>
+            </md-radio-group>
+        </div>
+        <div>
+            <md-subheader class="md-no-sticky">Apps</md-subheader>
+            <md-radio-group ng-disabled="!vm.newUserRole.role" ng-model="vm.newUserRole.appId">
+                <md-radio-button ng-disabled="!vm.newUserRole.role" ng-repeat="app in vm.apps" ng-value="app.appId" aria-label="{{app.appName}}">
+                    {{app.appName}}
+                </md-radio-button>
+            </md-radio-group>
+        </div>
+        <div>
+            <md-subheader class="md-no-sticky">Spaces</md-subheader>
+            <md-radio-group ng-disabled="!vm.newUserRole.role" ng-model="vm.newUserRole.spaceId">
+                <md-radio-button ng-disabled="!vm.newUserRole.role" ng-repeat="space in vm.spaces" ng-value="space.spaceId" aria-label="{{space.name}}">
+                    {{space.name}}
+                </md-radio-button>
+            </md-radio-group>
+        </div>
+    </div>
+
+    <md-button ng-disabled="!vm.user || !vm.newUserRole" class="md-raised" ng-click="vm.saveUserRole()">Add New</md-button>
+</div>

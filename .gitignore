@@ -1,0 +1,11 @@
+node_modules/
+.tmp/
+.sass-cache/
+bower_components/
+.idea/
+src/tsconfig.json
+src/**/*.js
+src/**/*.js.map
+.DS_Store
+npm-debug.log
+.npmrc

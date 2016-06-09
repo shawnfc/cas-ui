@@ -1,0 +1,66 @@
+@import "global";
+
+md-toast.md-top {
+  top: 78px;
+  right: 30px;
+}
+
+#credEditor {
+  md-input-container {
+    margin-top: 20px;
+  }
+  .keyHelp {
+    a {
+      color: #999;
+    }
+  }
+  md-toolbar.uploadError {
+    background: #ED1C24;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    div {
+      margin: 0 20px;
+    }
+  }
+  md-input-container {
+    margin: 30px 0;
+    .md-input {
+      height: 44px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      width: 75%;
+      &:focus {
+        border: 1px solid #00AE4D;
+      }
+      &:focus ~ label {
+        color: #00AE4D;
+      }
+    }
+    button {
+      font-weight: bold;
+      .fa {
+        margin-right: 5px;
+      }
+    }
+    .fa-question-circle {
+      color: #999999;
+    }
+    .keyContent {
+      overflow-x: scroll;
+      overflow-x: hidden;
+      height: 180px;
+      border: 1px solid #ddd;
+      padding: 5px;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+    }
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+      background: blue;
+    }
+  }
+}

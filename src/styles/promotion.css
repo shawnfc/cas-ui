@@ -1,0 +1,410 @@
+body {
+  font-family: "open sans", sans-serif;
+  background: #eee;
+}
+.main-ui-view {
+  width: 95%;
+  margin: 0 auto;
+}
+md-content {
+  background: #eee;
+}
+.pageBtn {
+  position: absolute;
+  top: -5px;
+  right: 2%;
+}
+.pageBtn .fa {
+  margin-right: 5px;
+}
+*:focus {
+  outline: 0;
+}
+h1.page-title {
+  font-size: 30px;
+  color: #000;
+  font-weight: 200;
+}
+.hidden {
+  display: none !important;
+}
+.dialogCard {
+  padding-left: 13px;
+}
+.cancel {
+  color: #F96302;
+}
+.errorMessage {
+  color: #EE2327;
+}
+/*Default Button*/
+.md-button,
+md-button,
+.md-button:visited {
+  display: inline-block;
+  min-width: 152px;
+  font-size: 18px;
+  color: #F96302;
+  background-color: #FBFBFB;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+  line-height: 46px;
+  min-height: 46px;
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  font-weight: 600;
+  text-align: center;
+  padding: 0px 20px;
+  outline: none;
+  margin: 0px 15px;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+}
+.md-button:hover,
+.md-button:focus {
+  background-color: #FFFFFF;
+  color: #F96302;
+}
+.md-button:disabled,
+.md-button.disabled {
+  color: #999999;
+  background-color: #FBFBFB;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+  cursor: not-allowed;
+}
+.md-button:active {
+  background-color: #f5f5f5;
+  border: 0px solid #FFFFFF;
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.35);
+}
+/*Primary Button*/
+.md-button.primary,
+.md-button.primary:visited {
+  background-color: #F96302;
+  color: #FFFFFF;
+}
+.md-button.primary:hover,
+.md-button.primary:focus {
+  background-color: #F97A27;
+  color: #FFFFFF;
+}
+.md-button.primary:active {
+  background: #D35401;
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+}
+.md-button.primary:disabled,
+.md-button.primary.disabled {
+  color: #DDDDDD;
+  background: #999999;
+  cursor: not-allowed;
+}
+.md-button.primary.md,
+.md-button.primary.sm {
+  font-size: 18px;
+  line-height: 46px;
+  min-height: 46px;
+}
+/*Tertiary Button*/
+.md-button.tertiary,
+.md-button.tertiary:visited {
+  background-color: transparent;
+  color: #F96302;
+  box-shadow: none;
+}
+.md-button.tertiary:hover,
+.md-button.tertiary:focus {
+  background-color: #F5F5F5;
+  color: #F96302;
+}
+.md-button.tertiary:active {
+  background-color: #f5f5f5;
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.35);
+}
+.md-button.tertiary:disabled,
+.md-button.tertiary.disabled {
+  color: #999999;
+  background: #F5F5F5;
+  cursor: not-allowed;
+}
+/*Error Button*/
+.md-button.error,
+.md-button.error:visited {
+  color: #EE2327;
+  border: 1px solid #EE2327;
+  background-color: #FBFBFB;
+}
+.md-button.error:hover,
+.md-button.error:focus {
+  background-color: #FFFFFF;
+  color: #EE2327;
+}
+.md-button.error:active {
+  background-color: #f5f5f5;
+  color: #EE2327;
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.35);
+}
+/*Confirmation Button*/
+.md-button.success,
+.md-button.success:visited {
+  color: #00AE4D;
+  border: 1px solid #00AE4D;
+  background-color: #FBFBFB;
+}
+.md-button.success:hover,
+.md-button.success:focus {
+  background-color: #FFFFFF;
+  color: #00AE4D;
+}
+.md-button.success:active {
+  background-color: #f5f5f5;
+  color: #00AE4D;
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.35);
+}
+/*Button Sizes*/
+.md-button.md {
+  font-size: 16px;
+  line-height: 38px;
+  min-height: 38px;
+  padding: 0 18px;
+}
+.md-button.sm {
+  font-size: 14px;
+  line-height: 30px;
+  min-height: 30px;
+  padding: 0 10px;
+}
+form {
+  padding: 8px;
+  width: 318px;
+  margin: 0 auto;
+}
+form .md-input {
+  height: 44px;
+}
+form button#signIn {
+  margin-left: 0;
+  text-transform: capitalize;
+}
+form md-input-container:not(md-input-invalid).md-input-focused label {
+  color: #00AE4D;
+}
+.md-text-field {
+  box-sizing: border-box;
+  position: relative;
+  margin: 15px 0;
+}
+.md-text-field:first-of-type {
+  margin-top: 25px;
+}
+.md-text-field:last-of-type {
+  margin-bottom: 0;
+}
+.md-text-field input[type=text],
+.md-text-field input[type=password],
+.md-text-field input[type=tel] {
+  outline: none;
+  position: relative;
+  border: 1px solid #DDDDDD;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  padding: 10px;
+  font-size: 18px;
+  color: #222222;
+  min-width: 300px;
+}
+.md-text-field input[type=text] + label,
+.md-text-field input[type=password] + label,
+.md-text-field input[type=tel] + label {
+  display: block;
+  position: absolute;
+  font-size: 16px;
+  color: #555555;
+  top: -25;
+}
+.md-text-field.missed input[type=text]:focus,
+.md-text-field input[type=text]:focus,
+.md-text-field input[type=password]:focus,
+.md-text-field input[type=tel]:focus {
+  border: 1px solid #00AF4D;
+  background-color: #FFFFFF;
+}
+.md-text-field input[type=text]:focus + label,
+.md-text-field.missed input[type=text]:focus + label,
+.md-text-field.missed input[type=password]:focus + label,
+.md-text-field input[type=tel]:focus + label {
+  color: #00AF4D;
+  position: absolute;
+  top: 0;
+}
+.md-text-field.missed input[type=text],
+.md-text-field.missed input[type=password],
+.md-text-field.missed input[type=tel] {
+  border: 1px solid #ED1C24;
+  background-color: #FEF4F4;
+}
+.md-text-field.missed input[type=text] + label,
+.md-text-field.missed input[type=password] + label,
+.md-text-field.missed input[type=tel] + label {
+  color: #ED1C24;
+}
+.md-text-field input[type=text]:disabled,
+.md-text-field input[type=password]:disabled,
+.md-text-field input[type=tel]:disabled {
+  background-color: #F5F5F5;
+  color: #999999;
+  border: none;
+  cursor: not-allowed;
+}
+.md-text-field input[type=text]:disabled + label,
+.md-text-field input[type=password]:disabled,
+.md-text-field input[type=tel]:disabled + label {
+  color: #999999;
+  cursor: not-allowed;
+}
+md-input-container label:not(.md-container-ignore) {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: auto;
+  top: -50px;
+}
+md-input-container.md-input-focused label:not(.md-no-float),
+md-input-container.md-input-has-placeholder label:not(.md-no-float),
+md-input-container.md-input-has-value label:not(.md-no-float) {
+  transform: translate3d(0, 28px, 0) scale(1);
+}
+md-input-container label:not(.md-no-float):not(.md-container-ignore),
+md-input-container .md-placeholder {
+  transition: none;
+  transform-origin: 0;
+}
+md-radio-group.md-default-theme .md-checked .md-ink-ripple,
+md-radio-group .md-checked .md-ink-ripple {
+  color: #00B054;
+}
+md-radio-button.md-default-theme.md-checked .md-off,
+md-radio-button.md-checked .md-off {
+  border-color: #00B054;
+}
+md-radio-button.md-default-theme .md-on,
+md-radio-button .md-on {
+  background-color: #00B054;
+}
+.md-step.md-active md-step-label-wrapper::before,
+.md-step.md-success md-step-label-wrapper::before {
+  background: #00B054;
+}
+md-radio-group.md-default-theme:not([disabled]) .md-primary .md-on,
+md-radio-group:not([disabled]) .md-primary .md-on,
+md-radio-group.md-default-theme:not([disabled]).md-primary .md-on,
+md-radio-group:not([disabled]).md-primary .md-on,
+md-radio-button.md-default-theme:not([disabled]) .md-primary .md-on,
+md-radio-button:not([disabled]) .md-primary .md-on,
+md-radio-button.md-default-theme:not([disabled]).md-primary .md-on,
+md-radio-button:not([disabled]).md-primary .md-on {
+  border-color: #00B054;
+}
+md-radio-group.md-default-theme:not([disabled]) .md-primary .md-checked .md-off,
+md-radio-group:not([disabled]) .md-primary .md-checked .md-off,
+md-radio-group.md-default-theme:not([disabled]) .md-primary.md-checked .md-off,
+md-radio-group:not([disabled]) .md-primary.md-checked .md-off,
+md-radio-group.md-default-theme:not([disabled]).md-primary .md-checked .md-off,
+md-radio-group:not([disabled]).md-primary .md-checked .md-off,
+md-radio-group.md-default-theme:not([disabled]).md-primary.md-checked .md-off,
+md-radio-group:not([disabled]).md-primary.md-checked .md-off,
+md-radio-button.md-default-theme:not([disabled]) .md-primary .md-checked .md-off,
+md-radio-button:not([disabled]) .md-primary .md-checked .md-off,
+md-radio-button.md-default-theme:not([disabled]) .md-primary.md-checked .md-off,
+md-radio-button:not([disabled]) .md-primary.md-checked .md-off,
+md-radio-button.md-default-theme:not([disabled]).md-primary .md-checked .md-off,
+md-radio-button:not([disabled]).md-primary .md-checked .md-off,
+md-radio-button.md-default-theme:not([disabled]).md-primary.md-checked .md-off,
+md-radio-button:not([disabled]).md-primary.md-checked .md-off {
+  border-color: #00B054;
+}
+md-radio-group.md-default-theme:not([disabled]) .md-primary .md-on,
+md-radio-group:not([disabled]) .md-primary .md-on,
+md-radio-group.md-default-theme:not([disabled]).md-primary .md-on,
+md-radio-group:not([disabled]).md-primary .md-on,
+md-radio-button.md-default-theme:not([disabled]) .md-primary .md-on,
+md-radio-button:not([disabled]) .md-primary .md-on,
+md-radio-button.md-default-theme:not([disabled]).md-primary .md-on,
+md-radio-button:not([disabled]).md-primary .md-on {
+  background-color: #00B054;
+}
+.promotion {
+  border-radius: 2px;
+  min-height: 233px;
+  width: 504px;
+}
+.promotion md-dialog-content {
+  margin: 24px;
+}
+.promotion .md-dialog-content {
+  overflow-y: hidden;
+  padding: 0;
+}
+.promotion .md-dialog-content .fa-times {
+  color: #999;
+}
+.promotion input {
+  font-family: "open sans", sans-serif;
+  color: #999;
+}
+.promotion h2 {
+  font-weight: normal;
+  margin: 0;
+  font-size: 24px;
+}
+.promotion p {
+  color: #6B6767;
+  margin-top: 6px;
+  font-size: 18px;
+}
+.promotion md-radio-group md-radio-button:not([disabled]).md-primary .md-on {
+  background-color: green;
+}
+.promotion md-radio-group md-radio-group .md-checked:not([disabled]).md-primary .md-ink-ripple {
+  color: rgba(0, 255, 0, 0.26);
+}
+.promotion md-dialog-actions {
+  margin-top: 18px;
+}
+.promotion md-dialog-actions button {
+  width: 119px;
+  height: 40px;
+}
+.promotion md-dialog-actions a.md-button.md-default-theme.md-raised:not([disabled]):hover,
+.promotion md-dialog-actions a.md-button.md-raised:not([disabled]):hover,
+.promotion md-dialog-actions .md-button.md-default-theme.md-raised:not([disabled]):hover,
+.promotion md-dialog-actions .md-button.md-raised:not([disabled]):hover {
+  background-color: #F96302;
+}
+.promotion md-dialog-actions .promotion-save {
+  text-transform: none;
+  color: #fff;
+  background: #F96302;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+.promotion md-dialog-actions .promotion-save:hover {
+  color: #fff;
+  background: #F96302;
+}
+.promotion md-dialog-actions .cancel {
+  text-transform: none;
+  font-size: 18px;
+  color: #F96302;
+  background: none;
+  padding-right: 0;
+  margin-right: 0;
+  margin-top: 0;
+  width: 63px;
+}
+.promotion md-dialog-actions .cancel:hover {
+  background: none;
+}
+.promotion .fa-times {
+  cursor: pointer;
+}

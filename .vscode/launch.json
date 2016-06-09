@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach and Debug",
+            "type": "chrome",
+            "request": "attach",
+            "webRoot": "./src",
+            "sourceMaps": true,
+            "port": 9222
+        }
+    ]
+}

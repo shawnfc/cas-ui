@@ -1,0 +1,53 @@
+@import "global";
+
+.promote-window, .schedule-window {
+  min-width: 462px;
+  .promote-header, .schedule-header {
+    height: 95px;
+    background-color: @contrastColor;
+  }
+  .promoteTitle, .scheduleTitle {
+    color: @viewTitleColor;
+    font-size: 2em;
+    font-weight:400;
+    text-align: center;
+    margin: 12px 0;
+  }
+  .builds-fab {
+    padding: 6px;
+  }
+  .treeview {
+    color: @appFontColor;
+    font-size: .9em;
+    padding: 30px;
+  }
+  div[data-tree-model] li {
+    line-height: 28px;
+  }
+  div[data-tree-model]:first-child li {
+    padding: 0;
+  }
+  div[data-tree-model] li .expanded {
+    padding: 1px 14px;
+    background-image: url("../images/arrow-down.png");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  div[data-tree-model] li .collapsed {
+    padding: 1px 14px;
+    background-image: url("../images/arrow-right.png");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  div[data-tree-model] li .normal {
+    padding: 1px 14px;
+    background-image: url("../images/store.png");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  div[data-tree-model] li .selected {
+    background-color: #ff6600;
+    font-weight: bold;
+    padding: 1px 5px;
+  }
+}
